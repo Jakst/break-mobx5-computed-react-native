@@ -1,4 +1,4 @@
-import { computed, decorate, observable } from "mobx";
+import { computed, observable } from "mobx";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -6,6 +6,7 @@ export default class App extends React.Component {
   @observable a = 1;
   @observable b = 2;
 
+  @computed
   get c() {
     return this.a + this.b;
   }
@@ -21,8 +22,6 @@ export default class App extends React.Component {
     );
   }
 }
-
-decorate(App, { c: computed });
 
 const styles = StyleSheet.create({
   container: {
